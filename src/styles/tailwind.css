@@ -16,7 +16,6 @@ body,html {
 main {
   @apply w-full h-full flex flex-col font-be;
   flex-grow: 1;
-  /* background-color: aquamarine; */
 }
 
 header {
