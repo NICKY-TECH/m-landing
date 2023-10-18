@@ -577,7 +577,6 @@ body,html{
   width: 100%;
   flex-grow: 1;
   flex-shrink: 1;
-  /* background-color: brown; */
 }
 
 main{
@@ -587,7 +586,6 @@ main{
   flex-direction: column;
   font-family: Be Vietnam Pro;
   flex-grow: 1;
-  background-color: aquamarine;
 }
 
 header{

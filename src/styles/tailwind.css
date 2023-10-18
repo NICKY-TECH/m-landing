@@ -55,7 +55,6 @@ nav ul li:hover {
 
 .get-started {
   @apply p-2 text-white rounded-full;
-  /* background-color: hsl(12, 88%, 59%); */
 }
 
 .go {
@@ -79,22 +78,16 @@ nav ul li:hover {
 }
 
 .illustration-text {
-  /* background-color: brown; */
   @apply w-2/3;
 }
 
 .illustration {
   @apply w-2/6;
-  /* background-color: aqua; */
 }
 
-/* .illustration img{
-    @apply w-2/6;
-} */
 
 .illustration-container {
   @apply flex flex-col gap-4 w-2/5;
-  /* background-color: blue; */
 }
 .illustration-text-title {
   @apply font-bold;
@@ -171,7 +164,6 @@ figure {
 .figure-image-container {
   @apply flex w-full justify-center;
   margin-top: -25px;
-  /* background-color: red; */
 }
 
 .figure-title {
