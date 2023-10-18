@@ -7,12 +7,6 @@
   border: 2px solid red;
 } */
 
-body{
-
-  background-color: black;
-  height: 100%;
- 
-}
 
 main {
   @apply w-full h-full flex flex-col font-be;
