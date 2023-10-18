@@ -74,7 +74,7 @@ nav ul li:hover {
 }
 
 .section-one-part-two {
-  @apply flex w-full justify-around;
+  @apply flex-col-reverse flex w-full justify-around md:flex-row;
 }
 
 .illustration-text {
