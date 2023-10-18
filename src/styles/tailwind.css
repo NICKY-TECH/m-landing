@@ -7,6 +7,9 @@
   border: 2px solid red;
 } */
 
+#root {
+  flex-grow: 1;
+}
 
 main {
   @apply w-full h-full flex flex-col font-be;
@@ -80,7 +83,6 @@ nav ul li:hover {
 .illustration {
   @apply w-2/6;
 }
-
 
 .illustration-container {
   @apply flex flex-col gap-4 w-2/5;
