@@ -11,7 +11,6 @@ body,html {
   @apply flex w-full h-full ;
   flex-grow: 1;
   flex-shrink: 1;
-  /* background-color: brown; */
 }
 
 main {
