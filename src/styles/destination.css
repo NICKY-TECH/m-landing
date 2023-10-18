@@ -653,7 +653,6 @@ nav ul li:hover{
   padding: 0.5rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  /* background-color: hsl(12, 88%, 59%); */
 }
 
 .go{
@@ -685,26 +684,20 @@ nav ul li:hover{
   justify-content: space-around;
 }
 
-.illustration-text {
-  /* background-color: brown; */
+.illustration-text{
   width: 66.666667%;
 }
 
 .illustration{
   width: 33.333333%;
-  /* background-color: aqua; */
 }
 
-/* .illustration img{
-    @apply w-2/6;
-} */
 
 .illustration-container{
   display: flex;
   width: 40%;
   flex-direction: column;
   gap: 1rem;
-  /* background-color: blue; */
 }
 .illustration-text-title{
   color: hsl(228, 39%, 23%);
@@ -803,7 +796,6 @@ figure{
   width: 100%;
   justify-content: center;
   margin-top: -25px;
-  /* background-color: red; */
 }
 
 .figure-title{
