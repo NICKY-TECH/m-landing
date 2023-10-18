@@ -15,11 +15,37 @@ import {
   AiOutlineTwitter,
 } from "react-icons/ai";
 import { BsPinterest, BsInstagram } from "react-icons/bs";
-import {GiHamburgerMenu} from "react-icons/gi"
+import { GiHamburgerMenu } from "react-icons/gi";
 import t4 from "../images/avatar-shanai.png";
+import Load from "../components/Load";
+
+const imagesArray = [
+  {
+    url: t1,
+    title: "Anisha Li",
+    text: "“Manage has supercharged our team’s workflow. The ability to maintain visibility on larger milestones at all times keeps everyone motivated.”",
+  },
+  {
+    url: t2,
+    title: "Ali Bravo",
+    text: "“We have been able to cancel so many other subscriptions since using  Manage. There is no more cross-channel confusion and everyone is much more focused.”",
+  },
+  {
+    url: t3,
+    title: "Richard Watts",
+    text: '"“Manage allows us to provide structure and process. It keeps us organized  and focused. I can’t stop recommending them to everyone I talk to!”',
+  },
+  {
+    url: t4,
+    title: "Shanai Gough",
+    text: " “Their software allows us to track, manage and collaborate on our projects from anywhere. It keeps the whole team in-sync without being intrusive.”",
+  },
+];
 
 function Main() {
   const [validate, setValidate] = useState("");
+  const [current, setCurrent] = useState(0);
+  const [prev, setPrev] = useState();
   function email() {
     let mail = document.getElementsByClassName("input-field");
     let emailRg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -29,6 +55,15 @@ function Main() {
     } else {
       setValidate("");
     }
+  }
+
+  function slideTo(id) {
+    setPrev(current);
+    setCurrent(() => {
+      return id;
+    });
+    console.log(prev);
+    console.log(current);
   }
   return (
     <main>
@@ -50,7 +85,7 @@ function Main() {
               back="hsl(12, 88%, 59%)"
               color="white"
             />
-            <GiHamburgerMenu className="ham"/>
+            <GiHamburgerMenu className="ham" />
           </nav>
         </header>
         <article className="section-one-part-two">
@@ -132,9 +167,21 @@ function Main() {
           <Testimonies
             url={t3}
             title="Richard Watts"
-            text="“Manage allows us to provide structure and process. It keeps us organized 
-  and focused. I can’t stop recommending them to everyone I talk to!”"
+            text="Manage allows us to provide structure and process. It keeps us organized  and focused. I can’t stop recommending them to everyone I talk to!”"
           />
+        </div>
+        <div className="slide-show-container">
+          <Testimonies
+            url={imagesArray[current].url}
+            title={imagesArray[current].title}
+            text={imagesArray[current].text}
+          />
+          <div className="loader-container">
+            <Load index="0" slide={slideTo} old={prev} new={current} />
+            <Load index="1" slide={slideTo} old={prev} new={current} />
+            <Load index="2" slide={slideTo} old={prev} new={current} />
+            <Load index="3" slide={slideTo} old={prev} new={current} />
+          </div>
         </div>
         <div className="section-three-button">
           <Button
@@ -199,24 +246,24 @@ function Main() {
           <li> Privacy Policy</li>
         </ul>
         <div className="footer-input">
-        <div className="input-set">
-        <div className="input-container">
+          <div className="input-set">
+            <div className="input-container">
               <input
                 placeholder="Update in your inbox..."
                 className="input-field"
               />
-   
-            <Button
-              text="Go"
-              color="white"
-              sub="go"
-              width="25%"
-              class="go"
-              validate={email}
-            />
+
+              <Button
+                text="Go"
+                color="white"
+                sub="go"
+                width="25%"
+                class="go"
+                validate={email}
+              />
+            </div>
+            {validate === "" ? "" : <span className="error">{validate}</span>}
           </div>
-          {validate === "" ? "" : <span className="error">{validate}</span>}
-        </div>
           <p className="copy-right">Copyright 2020. All Rights Reserved</p>
         </div>
       </section>

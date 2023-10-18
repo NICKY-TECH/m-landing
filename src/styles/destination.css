@@ -460,9 +460,6 @@ video {
 .w-3{
   width: 0.75rem;
 }
-.w-3\/12{
-  width: 25%;
-}
 .w-3\/4{
   width: 75%;
 }
@@ -547,6 +544,9 @@ video {
 .p-1{
   padding: 0.25rem;
 }
+.p-10{
+  padding: 2.5rem;
+}
 .p-2{
   padding: 0.5rem;
 }
@@ -599,7 +599,8 @@ video {
   border: 2px solid red;
 } */
 
-body,html{
+body,
+html{
   display: flex;
   height: 100%;
   width: 100%;
@@ -742,7 +743,6 @@ nav ul li:hover{
   }
 }
 
-
 .illustration-container{
   display: flex;
   width: 100%;
@@ -750,13 +750,11 @@ nav ul li:hover{
   gap: 1rem;
 }
 
-
 @media (max-width: 641px){
   .illustration-container{
     align-items: center;
   }
 }
-
 
 @media (min-width: 768px){
   .illustration-container{
@@ -866,9 +864,24 @@ h3{
 
 figure{
   display: flex;
-  width: 25%;
+  width: 80%;
   flex-direction: column;
   justify-content: center;
+}
+
+@media (max-width: 639px){
+  figure{
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 640px){
+  figure{
+    width: 25%;
+  }
+}
+
+figure {
   background-color: hsl(0, 0%, 98%);
 }
 
@@ -990,9 +1003,46 @@ input:focus {
   color: hsl(12, 88%, 59%);
 }
 
-@media (max-width:639px){
+.slide-show-container{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px){
+  .slide-show-container{
+    display: none;
+  }
+}
+
+.slide-show{
+  width: 80%;
+  background-color: hsl(227, 12%, 61%);
+}
+
+.loader-container{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.load:hover{
+  cursor: pointer;
+}
+
+.load {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+@media (max-width: 639px) {
   .section-one {
     background-position: right -300px bottom 250px;
+  }
+  .figure-image-container{
+    margin-top: -60px;
   }
 }
 
@@ -1011,6 +1061,9 @@ input:focus {
 @media (max-width: 639px){
   .max-\[639px\]\:hidden{
     display: none;
+  }
+  .max-\[639px\]\:p-10{
+    padding: 2.5rem;
   }
 }
 
