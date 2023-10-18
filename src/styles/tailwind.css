@@ -3,15 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+/* * {
   border: 2px solid red;
-}
+} */
 
 body,html {
   @apply flex w-full h-full ;
   flex-grow: 1;
   flex-shrink: 1;
-  background-color: brown;
+  /* background-color: brown; */
 }
 
 main {
