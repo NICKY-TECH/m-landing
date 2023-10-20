@@ -13,7 +13,7 @@ function Load(props) {
   return (
     <div
       className="load" 
-      style={props.old!==props.index?notActive:props.new===props.index?active:notActive}
+      style={props.index===props.new?active:notActive}
       onClick={()=>{props.slide(props.index)}}
     ></div>
   );

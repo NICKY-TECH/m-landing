@@ -13,11 +13,13 @@ import {
   AiFillFacebook,
   AiFillYoutube,
   AiOutlineTwitter,
+  AiOutlineClose,
 } from "react-icons/ai";
 import { BsPinterest, BsInstagram } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import t4 from "../images/avatar-shanai.png";
 import Load from "../components/Load";
+import { screen } from "@testing-library/react";
 
 const imagesArray = [
   {
@@ -45,7 +47,65 @@ const imagesArray = [
 function Main() {
   const [validate, setValidate] = useState("");
   const [current, setCurrent] = useState(0);
-  const [prev, setPrev] = useState();
+  const [prev, setPrev] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [showNav, setShowNav] = useState(false);
+  console.log("outside");
+  console.log(isOpen);
+  let style = {
+    backgroundColor: "hsl(12, 88%, 59%)",
+  };
+  let screenWidtho = window.screen.width;
+  // console.log(screenWidtho);
+
+  let ham = document.querySelector(".ham");
+  let img = document.querySelector(".under-img");
+  let overLay = document.querySelector(".over-lay");
+  // window.addEventListener("resize", function () {
+  //   let screenWidths = window.screen.width;
+  // console.log(screenWidths);
+  // if (screenWidths > 639 && overLay) {
+  //   let overLay = document.querySelector(".over-lay");
+  //   overLay.style.display = "none";
+  // ham.style.display = "none";
+  // console.log("yeee");
+  //   }
+  // });
+  // showNav(isOpen);
+  // function show() {
+  //   if (showNav) {
+  //     let overLay = document.querySelector(".over-lay");
+  //     overLay.style.display = "block";
+  //     setShowNav(!showNav);
+  //   } else {
+  //     let overLay = document.querySelector(".over-lay");
+  //     overLay.style.display = "none";
+  //     setShowNav(!setShowNav);
+  //   }
+  // }
+  // show();
+
+  // console.log(overLay);
+  // console.log(window.screenWidth);
+  function open() {
+    // let overLay = document.querySelector(".over-lay");
+    // if (isOpen === false) {
+    //   console.log("ahhhhhhhhhhhhhhhhhhhhhhhhhh");
+    //   overLay.style.display = "block";
+    //   return setIsOpen(true);
+    // } else if (isOpen === true) {
+    //   console.log("norm");
+    // ham.style.display = "flex";
+    // img.style.display = "flex";
+    // overLay.style.display = "none";
+
+    //  return setIsOpen(false);
+    // }
+    setIsOpen(!isOpen);
+    // setShowNav(!showNav);
+
+  }
+
   function email() {
     let mail = document.getElementsByClassName("input-field");
     let emailRg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -70,7 +130,7 @@ function Main() {
       <section className="section-one">
         <header>
           <nav>
-            <img src={logo} />
+            <img src={logo} className="under-img" />
             <ul>
               <li>Pricing</li>
               <li>Product</li>
@@ -85,7 +145,11 @@ function Main() {
               back="hsl(12, 88%, 59%)"
               color="white"
             />
-            <GiHamburgerMenu className="ham" />
+            {isOpen ? (
+              <AiOutlineClose className="ham" onClick={open} />
+            ) : (
+              <GiHamburgerMenu className="ham" onClick={open} />
+            )}
           </nav>
         </header>
         <article className="section-one-part-two">
@@ -195,11 +259,7 @@ function Main() {
       </section>
 
       <section className="section-four">
-        <p className="simplify">
-          {" "}
-          Simplify how your team
-          <br /> works today.
-        </p>
+        <p className="simplify"> Simplify how your team works today.</p>
         <Button
           text="Get started"
           color="hsl(12, 88%, 59%)"
@@ -209,6 +269,7 @@ function Main() {
         />
       </section>
       <section className="section-five">
+        <p className="copy-right-2">Copyright 2020. All Rights Reserved</p>
         <div className="section-one-part-five">
           <img src={light} />
           <div className="icons">
@@ -234,17 +295,19 @@ function Main() {
             </p>
           </div>
         </div>
-        <ul className="footer-links">
-          <li>Home</li>
-          <li>Pricing</li>
-          <li>Products</li>
-          <li>About Us</li>
-        </ul>
-        <ul className="footer-links">
-          <li> Careers</li>
-          <li> Community</li>
-          <li> Privacy Policy</li>
-        </ul>
+        <div className="footer-links-container">
+          <ul className="footer-links">
+            <li>Home</li>
+            <li>Pricing</li>
+            <li>Products</li>
+            <li>About Us</li>
+          </ul>
+          <ul className="footer-links">
+            <li> Careers</li>
+            <li> Community</li>
+            <li> Privacy Policy</li>
+          </ul>
+        </div>
         <div className="footer-input">
           <div className="input-set">
             <div className="input-container">
@@ -257,7 +320,6 @@ function Main() {
                 text="Go"
                 color="white"
                 sub="go"
-                width="25%"
                 class="go"
                 validate={email}
               />
@@ -267,6 +329,15 @@ function Main() {
           <p className="copy-right">Copyright 2020. All Rights Reserved</p>
         </div>
       </section>
+      <article className={isOpen ? "over-lay" : "over-lay-remove"}>
+        <ul className="overlay-list">
+          <li>Pricing</li>
+          <li>Product</li>
+          <li>About US</li>
+          <li>Careers</li>
+          <li>Community</li>
+        </ul>
+      </article>
     </main>
   );
 }

@@ -16,7 +16,41 @@ html {
 
 main {
   @apply w-full h-full flex flex-col font-be;
+  position: relative;
+  z-index: 0;
   flex-grow: 1;
+}
+
+.over-lay {
+  @apply w-full h-full  max-[639px]:block sm:hidden;
+  position: absolute;
+  background-image: linear-gradient(
+    to top,
+    hsla(0, 0%, 80%, 0.5),
+    hsla(0, 0%, 80%, 0)
+  );
+  top: 75px;
+  z-index: 1;
+}
+
+
+.over-lay-remove{
+  @apply hidden
+}
+
+.overlay-nav {
+  @apply flex justify-around mt-4;
+}
+
+.overlay-list {
+  @apply flex flex-col bg-white items-center justify-center mt-14 gap-4 w-11/12 h-3/6 m-auto;
+  font-weight: 700;
+  color: hsl(228, 39%, 23%);
+}
+
+.close {
+@apply hover:cursor-pointer max-[639px]:flex sm:hidden;
+font-size: 1.8rem;
 }
 
 header {
@@ -35,15 +69,18 @@ nav img {
 nav button {
   @apply max-[639px]:hidden;
 }
-
 nav ul {
   @apply flex gap-7 font-semibold max-[641px]:hidden;
   color: hsl(228, 39%, 23%);
 }
 
 .ham {
-  @apply max-[641px]:flex  sm:hidden;
+  @apply max-[639px]:flex sm:hidden;
   font-size: 1.5rem;
+}
+
+.nav-control{
+  @apply max-[639px]:flex sm:hidden;
 }
 
 nav ul li {
@@ -61,6 +98,7 @@ nav ul li:hover {
 .go {
   @apply p-1 text-white rounded-full ml-2;
   background-color: hsl(12, 88%, 59%);
+  width: 25%;
 }
 
 .go:hover {
@@ -177,23 +215,23 @@ figure {
 }
 
 .section-four {
-  @apply flex justify-around py-10;
+  @apply flex max-[639px]:flex-col  max-[639px]:items-center  max-[639px]:justify-center max-[639px]:gap-5 sm:justify-around py-10;
   background-color: hsl(12, 88%, 59%);
 }
 
 .simplify {
-  @apply text-white;
+  @apply text-white text-center max-[639px]:w-6/12;
   font-weight: 500;
   font-size: 1.6rem;
 }
 
 .section-five {
-  @apply py-14 flex justify-around w-full;
+  @apply w-full py-14 flex  max-[639px]:gap-10 max-[639px]:flex-col-reverse  max-[639px]:items-center max-[639px]:justify-center sm:justify-around;
   background-color: hsl(233, 12%, 13%);
 }
 
 .section-one-part-five {
-  @apply flex flex-col gap-24;
+  @apply flex max-[639px]:flex-col-reverse flex-col gap-24;
 }
 
 .icons {
@@ -234,11 +272,17 @@ input:focus {
 }
 
 .copy-right {
+  @apply max-[639px]:hidden sm:flex;
+  color: hsl(227, 12%, 61%);
+}
+
+.copy-right-2 {
+  @apply max-[639px]:flex sm:hidden;
   color: hsl(227, 12%, 61%);
 }
 
 .input-set {
-  @apply flex flex-col gap-1;
+  @apply max-[639px]:w-full flex flex-col gap-1;
 }
 
 .error {
@@ -259,18 +303,30 @@ input:focus {
 }
 
 .load {
-
   @apply hover:cursor-pointer;
   width: 20px;
   height: 20px;
   border-radius: 50%;
 }
 
+.footer-links-container {
+  @apply flex gap-10;
+}
+
 @media (max-width: 639px) {
   .section-one {
     background-position: right -300px bottom 250px;
   }
-  .figure-image-container{
+  .figure-image-container {
     margin-top: -60px;
   }
+  .simplify {
+    font-size: 2.2rem;
+  }
+  .go {
+    @apply py-2 px-6;
+    width: 45%;
+  }
+  
+
 }
